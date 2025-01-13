@@ -1,0 +1,58 @@
+class Person:
+    def _init_(self, name):
+        self.name = name
+        self.score = 0
+
+    def ask_question(self, question):
+        response = input(f"{question} (yes/no): ")
+        if response.lower() in ['yes', 'y']:
+            self.score += 1
+
+questions = [
+    "Do you enjoy social gatherings?",
+    "Do you feel energized after interacting with many people?",
+    "Do you like being the center of attention?",
+    "Do you find it easy to start conversations with strangers?",
+    "Do you prefer group activities over spending time alone?",
+    "Do you enjoy being the center of attention?",
+    "Do you enjoy meeting new people?",
+    "Do you feel energized in social situation?",
+    "Do you prefer group activites over solo ones?",
+    "Do you feel uncomfortable being alone for long period of time?",
+    "Do you like to keep busy with social engagement or activites?",
+    "Do you find it easy to start conversation with stangers?",
+    "Do you feel happy when you are the one leading conversation or event?",
+    "Do you tend to talk before thinking?",
+    "Do you feel energized after social interaction ?",
+    "Do you constantly seek out new people?",
+    "Are you quick to make new friends?",
+    "Do you feel more comfortable in quiet, peaceful places?",
+    "Do you usually feel energized after attending a big party or social event?",
+    "Do you tend to think things through before speaking?",
+    "Do you often find yourself reflecting on your thoughts and feelings?",
+    "Do you enjoy having deep, meaningful conversations with others?",
+    "Do you tend to avoid small talk?",
+    "Do you have a small, close-knit group of friends?",
+    "Do you feel comfortable in a large social group? ",
+    "Do you make new friends quickly?" ,
+    "Do you enjoy attending parties or social events? ",
+    "Are you constantly on the lookout for opportunities to meet new people? ",
+    "Do you enjoy attending parties or social events? ",
+    "Do you often talk before fully thinking through your thoughts? ",
+    "Do you typically express your excitement or enthusiasm outwardly? ",   
+]
+
+def determine_personality(person):
+    for question in questions:
+        person.ask_question(question)
+    
+    if person.score >= 3:
+        return "extrovert"
+    else:
+        return "introvert"
+
+name = input("Enter your name: ")
+person = Person(name)
+personality = determine_personality(person)
+
+print(f"{person.name}, you are an {personality}!")
